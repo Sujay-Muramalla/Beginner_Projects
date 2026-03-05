@@ -46,7 +46,7 @@ while True:
         case 4:
             print(a / b)
             
-        Case 5:
+        case 5:
             print ("Goodbye!!Exiting the programm....")
             break
 
