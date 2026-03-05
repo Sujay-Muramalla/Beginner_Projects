@@ -13,7 +13,6 @@ def divide(a, b):
 
 
 
-choice = int(input("Enter your choice: "))
 
 while True:
 
