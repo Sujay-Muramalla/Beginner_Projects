@@ -23,10 +23,10 @@ while True:
     print("4 Divide")
     print("5 Exit")
 
-    choice = int(input("Enter choice: "))
+    choice = int(input("Enter choice of operation from the calculator: "))
 
     if choice == 5:
-        print("Exit...")
+        print("Good bye......")
         break
 
     a = int(input("Enter first number: "))
@@ -35,21 +35,17 @@ while True:
     match choice:
 
         case 1:
-            print(a + b)
+            print (add(a,b))
 
         case 2:
-            print(a - b)
+            print (subtract(a-b))
 
         case 3:
-            print(a * b)
+            print(multiply(a*b))
 
         case 4:
-            print(a / b)
+            print(divide(a/b))
             
-        case 5:
-            print ("Goodbye!!Exiting the programm....")
-            break
-
         case _:
             print("Invalid option")
     
