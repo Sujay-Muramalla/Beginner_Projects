@@ -45,6 +45,10 @@ while True:
 
         case 4:
             print(a / b)
+            
+        Case 5:
+            print ("Goodbye!!Exiting the programm....")
+            break
 
         case _:
             print("Invalid option")
