@@ -6,7 +6,7 @@ pem_file = "/c/Users/Lenovo/OneDrive/Backup_23102024/d_drive/PERSONAL/Career/Pro
 ec2_user = "ec2-user"
 ec2_public_ip = "54.188.162.118"
 new_user = "sujay2"
-remote_command = f"ls -la /home/{new_user}"
+remote_command_ls = f"id {new_user}"
 
 
 #check if the user exists, 
@@ -14,7 +14,7 @@ check_user = subprocess.run([
     "ssh",
     "-i", pem_file,
     f"{ec2_user}@{ec2_public_ip}",
-    remote_command
+    remote_command_ls
 ])
 
 #if returncode is not 0, creates the user
@@ -30,8 +30,21 @@ else:
     print ("user already exists")
 
 
+#verify user creation
 
+remote_command_id = f"id {new_user}"
+verify_user_creation = subprocess.run ([
+        "ssh",
+        "-i", pem_file,
+        f"{ec2_user}@{ec2_public_ip}",
+        remote_command_id
+])
 
+#verify the creation and inform the user for success
+if verify_user_creation.returncode ==0:
+    print ("user exists and is created successfully")
+else:
+    print ("user verification failed")
 
 
 
