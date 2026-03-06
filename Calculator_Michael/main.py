@@ -8,11 +8,24 @@ BONUS: What happens if he typed in a wrong number - maybe a good thing to implem
 BONUS: it'll be awesome if this program is running as long as the user does not enter the word "quit" or "exit" """
 
 
+import subprocess
+import os
+import time 
+
+#clear screen function
+def clear_screen():
+    subprocess.run('cls' if os.name == 'nt' else 'clear', shell=True)
+
+
+
+
 
 # Calculator
 # User Interaction in form of: The user can choose which mathematic operation they want to perform
 """ userInputNumber1 = float(input("Enter the first number: "))
 userInputNumber2 = float(input("Enter the second number: ")) """
+
+
 
 #function to get user input for numbers...
 def get_numbers():
@@ -28,8 +41,9 @@ def show_menu():
     print("2. Subtraction")
     print("3. Multiplication")
     print("4. Division")
+    print("5. Exit")
 
-def addition():
+def addition(number1, number2):
     # put code inside
     result = number1 + number2
     return result
@@ -61,30 +75,65 @@ def divide(number1, number2):
 
 def calculator():
     
-    a, b = get_numbers()
+     while True:
 
-    show_menu()
-    choice = int (input("Enter choice (1/2/3/4): "))
-    
-    
-    if choice == 1:
-        result = addition(a, b)
-        print("Result:", result)
+        
+        clear_screen()
+        show_menu()
+        choice = int (input("Enter choice (1/2/3/4/5): "))
+        
 
-    elif choice == 2:
-        result = subtraction(a, b)
-        print("Result:", result)
+        if choice == 5:
+            print("Exiting calculator... Goodbye!")
+            break
 
-    elif choice == 3:
-        result = multiply(a, b)
-        print("Result:", result)
+            """         if choice not in [1,2,3,4]:
+            print("Invalid choice. Try again.")
+            continue """
 
-    elif choice == 4:
-        result = divide(a, b)
-        print("Result:", result)
+        
+        
+        if choice == 1:
+            a,b = get_numbers()
+            result = addition(a, b)
+            print("Result:", result)
+            time.sleep(3)
 
-    else:
-        print("Invalid choice")
+        elif choice == 2:
+            a,b = get_numbers()
+            result = subtraction(a, b)
+            print("Result:", result)
+            time.sleep(3)
+
+        elif choice == 3:
+            a,b = get_numbers()
+            result = multiply(a, b)
+            print("Result:", result)
+            time.sleep(3)
+
+        elif choice == 4:
+            a, b = get_numbers()
+
+            try:
+                result = divide(a, b)
+                print("Result:", result)
+                time.sleep(3)
+
+            except ZeroDivisionError:
+                print("Error: Division by zero is not allowed.")
+                time.sleep(3)
+
+        else:
+            print("Invalid choice")
+            repeatFlag = input("do you wish to continue with calculations? (y/n)")
+            
+            if (repeatFlag == 'y'):
+                continue
+            else:
+                print ("thank you for coming to this application.. have a good day!")
+                break
+                
+            
 
 
 calculator()
