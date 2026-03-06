@@ -11,10 +11,21 @@ BONUS: it'll be awesome if this program is running as long as the user does not 
 
 # Calculator
 # User Interaction in form of: The user can choose which mathematic operation they want to perform
-userInputNumber1 = float(input("Enter the first number: "))
-userInputNumber2 = float(input("Enter the second number: "))
+""" userInputNumber1 = float(input("Enter the first number: "))
+userInputNumber2 = float(input("Enter the second number: ")) """
 
+def get_numbers():
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    return num1, num2
 
+""" #create a function
+def show_menu():
+    print("\nSelect operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division") """
 
 
 # Global Variables
