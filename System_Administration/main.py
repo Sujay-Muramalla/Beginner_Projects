@@ -1,17 +1,18 @@
 import subprocess
 
+def init():
+    pem_file = "/c/Users/Lenovo/OneDrive/Backup_23102024/d_drive/PERSONAL/Career/Projects/Beginner_Projects/labsuser.pem"
+    ec2_user = "ec2-user"
+    ec2_public_ip = "54.188.162.118"
+    new_user = "sujay2"
+    remote_command_ls = f"id {new_user}"
 
-
-pem_file = "/c/Users/Lenovo/OneDrive/Backup_23102024/d_drive/PERSONAL/Career/Projects/Beginner_Projects/labsuser.pem"
-ec2_user = "ec2-user"
-ec2_public_ip = "54.188.162.118"
-new_user = "sujay2"
-remote_command_ls = f"id {new_user}"
 
 
 #check if the user exists, 
 check_user = subprocess.run([
     "ssh",
+    "-o", "StrictHostKeyChecking=no",
     "-i", pem_file,
     f"{ec2_user}@{ec2_public_ip}",
     remote_command_ls
@@ -35,6 +36,7 @@ else:
 remote_command_id = f"id {new_user}"
 verify_user_creation = subprocess.run ([
         "ssh",
+        "-o", "StrictHostKeyChecking=no",
         "-i", pem_file,
         f"{ec2_user}@{ec2_public_ip}",
         remote_command_id
