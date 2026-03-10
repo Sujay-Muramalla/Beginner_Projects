@@ -31,3 +31,8 @@ for num in nums:
 print (f"Prime numbers are: {primes}")
 
 
+
+
+with open("results.txt", "w") as file:
+    for prime in primes:
+        file.write(f"Prime number: {prime}\n")
