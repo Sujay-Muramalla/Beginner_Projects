@@ -6,6 +6,7 @@ print (nums)
 primes = []
 divisor = 2
 isPrime = True
+
 for num in nums:
     if num < 2:
         isPrime = False 
@@ -20,3 +21,5 @@ for num in nums:
         
 
 print (primes)
+
+
