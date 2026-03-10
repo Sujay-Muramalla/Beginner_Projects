@@ -1,13 +1,10 @@
 
-
-
-try:
-    
-    max = int (input ("Enter the max number for generating primes: "))
-    #print (max)
-
-except ValueError:
-    print ("Invalid input! Please enter a valid integer")
+while True:
+    try:
+        max = int(input("Enter the maximum number to generate primes: "))
+        break
+    except ValueError:
+        print("Invalid input! Please enter a valid integer.\n")
 
 #max = 250
 nums = list (range(1,max+1))
